@@ -14,6 +14,6 @@ const config: StorybookConfig = {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  staticDirs: ["..\\public"],
+  staticDirs: [process.platform === "win32" ? "..\\public" : "../public"],
 };
 export default config;
