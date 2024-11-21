@@ -41,3 +41,16 @@ Secondary.play = async ({ canvasElement }) => {
   await userEvent.click(button);
   expect(button).toHaveTextContent('Secondary Button');
 };
+
+export const Test = Template.bind({});
+Test.args = {
+  label: 'Test Button',
+  onClick: () => console.log('Test button clicked'),
+};
+
+Test.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const button = await canvas.getByRole('button', { name: /Test Button/i });
+  await userEvent.click(button);
+  expect(button).toHaveTextContent('Test Button');
+};
